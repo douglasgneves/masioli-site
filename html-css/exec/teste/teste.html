@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixelnalta - Soluções Digitais de Alta Performance</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Space+Grotesk:wght@400;500&display=swap');
+        
+        :root {
+            --primary: #6C40F7;
+            --secondary: #FF4D7D;
+            --dark: #0A0E23;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .galaxy-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: 0;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: var(--opacity); transform: scale(1); }
+        }
+        
+        .shooting-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(to right, rgba(255,255,255,0), #fff);
+            border-radius: 50%;
+            animation: shoot var(--shoot-duration) linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes shoot {
+            0% { transform: translateX(0) translateY(0); opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(var(--shoot-x)) translateY(var(--shoot-y)); opacity: 0; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+        
+        p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 64, 247, 0.3);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="galaxy-bg" id="galaxy"></div>
+        
+        <div class="hero-content">
+            <div class="logo">PIXELNALTA</div>
+            <h1>Elevamos seu negócio a novas galáxias digitais</h1>
+            <p>Soluções criativas e tecnologia de ponta para impulsionar sua presença online além dos limites convencionais.</p>
+            <a href="#contato" class="cta-button">Inicie sua jornada</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galaxy = document.getElementById('galaxy');
+            const galaxyWidth = galaxy.offsetWidth;
+            const galaxyHeight = galaxy.offsetHeight;
+            
+            // Criar estrelas
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const size = Math.random() * 3 + 1;
+                const opacity = Math.random() * 0.8 + 0.2;
+                const duration = Math.random() * 5 + 3;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * galaxyWidth}px`;
+                star.style.top = `${Math.random() * galaxyHeight}px`;
+                star.style.setProperty('--opacity', opacity);
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                galaxy.appendChild(star);
+            }
+            
+            // Criar estrelas cadentes
+            function createShootingStar() {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                
+                const startX = Math.random() * galaxyWidth;
+                const startY = Math.random() * galaxyHeight / 2;
+                const endX = startX + (Math.random() * 300 + 100);
+                const endY = startY + (Math.random() * 100 + 50);
+                const duration = Math.random() * 2 + 1;
+                
+                shootingStar.style.left = `${startX}px`;
+                shootingStar.style.top = `${startY}px`;
+                shootingStar.style.setProperty('--shoot-x', `${endX - startX}px`);
+                shootingStar.style.setProperty('--shoot-y', `${endY - startY}px`);
+                shootingStar.style.setProperty('--shoot-duration', `${duration}s`);
+                
+                galaxy.appendChild(shootingStar);
+                
+                setTimeout(() => {
+                    shootingStar.remove();
+                }, duration * 1000);
+            }
+            
+            // Disparar estrelas cadentes periodicamente
+            setInterval(createShootingStar, 2000);
+            
+            // Disparar algumas no início
+            for (let i = 0; i < 3; i++) {
+                setTimeout(createShootingStar, i * 500);
+            }
+        });
+    </script>
+</body>
+</html>
