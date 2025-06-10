@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>PIXELNAUTA</title>
+
+  <script>
+    async function sendMessage() {
+      const userInput = document.getElementById('userInput').value;
+
+      if (!userInput.trim()) {
+        alert("Digite uma mensagem antes de enviar.");
+        return;
+      }
+
+      const chatbox = document.getElementById('chatbox');
+      chatbox.innerHTML += `<p><strong>Você:</strong> ${userInput}</p>`;
+
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userInput })
+      });
+
+      const data = await response.json();
+      const reply = data.response || data.error;
+
+      chatbox.innerHTML += `<p><strong>PixelBot:</strong> ${reply}</p>`;
+      document.getElementById('userInput').value = '';
+    }
+  </script>
+
+  <style>
+    /* estilos já existentes acima mantidos... */
+
+    .chat-container {
+      margin-top: 3rem;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    #chatbox {
+      height: 200px;
+      overflow-y: auto;
+      border: 1px solid #555;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #111;
+      border-radius: 8px;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    .chat-input-area {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    #userInput {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .chat-send-button {
+      background-color: #25d366;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .chat-send-button:hover {
+      background-color: #1ebe57;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>PIXELNAUTA</h1>
+    <div class="intro">
+      <p style="text-align: center;"><strong>Explore o poder da web: </strong><span class="highlight">crie, concretize, conquiste.</span></p>
+    </div>
+
+    <!-- conteúdo existente omitido para foco -->
+
+    <div class="chat-container">
+      <h2>Fale com o PixelBot 🤖</h2>
+      <div id="chatbox"></div>
+      <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
+        <button class="chat-send-button" onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÃO DO ZAP -->
+  <a href="https://wa.me/5527996271674" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+    <img src="sites/logo-whatsapp.png" alt="WhatsApp" />
+  </a>
+</body>
+</html>

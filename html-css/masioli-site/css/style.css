@@ -1,0 +1,1020 @@
+@font-face {
+    font-family: 'Lawrence'; src: url('../fonts/DEMO-lawrence_regular.otf') format('woff2');
+}
+@font-face {
+    font-family: 'Peugeot'; src: url('../fonts/Peugeot-Light.otf') format('woff2');
+}
+
+:root {
+    --azul-escuro: #253951;
+    --bronze: #A67955;
+    --cinza-claro: #EDEDEE;
+    --cinza-medio: #8D8D8D;
+    --branco: #FFFFFF;
+    --preto: #000000;
+
+    --font-principal: 'Lawrence','Times New Roman', Times, serif; /* Fallback para Lawrence */
+    --font-secundaria: 'Peugeot', 'Arial', 'Helvetica', 'sans-serif';   /* Fallback para Peugeot */
+
+    --header-height: 85px;
+    --border-radius-padrao: 8px;
+}
+
+/* Reset Básico e Estilos Globais */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+    font-family: var(--font-secundaria);
+    line-height: 1.7;
+    color: var(--azul-escuro);
+    background-color: var(--branco); /* Fundo padrão branco */
+    overflow-x: hidden; /* Evitar scroll horizontal por causa de carrosséis */
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-principal); color: var(--bronze); margin-bottom: 0.7em; line-height: 1.3; }
+.section-title {
+    font-size: 2.5rem; /* Aumentei um pouco */
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-title::after { /* Detalhe de linha abaixo do título */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--bronze);
+}
+.section-title.light-text, .section-title.light-text::after {
+    color: var(--cinza-claro);
+}
+
+
+p { margin-bottom: 1.2em; color: #555; } /* Tom de cinza para parágrafos */
+a { color: var(--bronze); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--azul-escuro); }
+img { max-width: 100%; height: auto; display: block; }
+
+.bg-azul-escuro { background-color: var(--azul-escuro); color: var(--cinza-claro); }
+.bg-azul-escuro p { color: var(--cinza-claro); opacity: 0.9; }
+.bg-cinza-claro { background-color: var(--cinza-claro); }
+
+/* Cabeçalho */
+header {
+    background-color: var(--branco);
+    padding: 0; /* Removido padding, altura definida pelo container */
+    border-bottom: 1px solid #e0e0e0; /* Borda mais suave */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex; /* Para centralizar verticalmente */
+    align-items: center; /* Para centralizar verticalmente */
+}
+header .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+/* Novo CSS para a imagem do logo */
+.logo {
+    display: flex; /* Ajuda no alinhamento vertical se necessário */
+    align-items: center;
+}
+
+#header-logo {
+    height: 50px; /* Defina a ALTURA desejada para o seu logo no header */
+    width: auto;   /* Deixe a largura automática para manter a proporção */
+    display: block; /* Para evitar espaços extras abaixo da imagem */
+}
+
+/* Ajuste responsivo para o logo, se necessário */
+@media (max-width: 768px) {
+    #header-logo {
+        height: 40px; /* Logo um pouco menor em telas pequenas */
+    }
+}
+/* Estilo para o link ativo no menu de navegação */
+header nav ul li a.active-link {
+    color: var(--bronze); /* Ou a cor que você usa para hover/active */
+    border-bottom-color: var(--bronze); /* Se você usa borda inferior */
+    /* Adicione outros estilos se desejar, como font-weight: bold; */
+}
+header nav ul { list-style: none; display: flex; }
+header nav ul li { margin-left: 30px; }
+header nav ul li a { font-family: var(--font-secundaria); color: var(--azul-escuro); font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.8px; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: color 0.3s ease, border-bottom-color 0.3s ease; }
+header nav ul li a:hover, header nav ul li a.active-link { color: var(--bronze); border-bottom-color: var(--bronze); }
+.menu-toggle { display: none; background: none; border: none; font-size: 28px; color: var(--azul-escuro); cursor: pointer; }
+
+
+/* --- ESTILOS PARA O MENU DROPDOWN --- */
+
+/* O container do item de menu (Mídias, Loja) */
+.dropdown {
+    position: relative; /* Essencial para o posicionamento do menu filho */
+}
+
+/* O link principal do dropdown (Mídias ▼, Loja ▼) */
+.dropdown .dropdown-toggle {
+    cursor: pointer; /* Indica que é clicável, importante para o JS no mobile */
+}
+
+/* A "cascata" (lista de sub-itens) - VERSÃO CORRIGIDA */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    /* Correção principal: posiciona o menu logo abaixo do item pai, sem espaço */
+    top: 100%; 
+    /* Melhoria de alinhamento: centraliza o dropdown em relação ao link */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: var(--branco);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    list-style: none;
+    /* Adiciona um pequeno espaço no topo, mas DENTRO do menu, o que não quebra o hover */
+    padding: 10px 0; 
+    margin: 5px 0 0 0; /* Adiciona uma pequena margem para afastar do texto principal */
+    border-radius: var(--border-radius-padrao);
+    border: 1px solid #e0e0e0;
+    opacity: 0; /* Começa invisível para a animação */
+    visibility: hidden; /* Começa escondido para acessibilidade */
+    transition: opacity 0.2s ease, visibility 0.2s ease, margin-top 0.2s ease;
+}
+
+/* Links dentro do menu dropdown */
+.dropdown-menu li a {
+    font-family: var(--font-secundaria);
+    font-size: 0.9rem; /* Tamanho da fonte um pouco menor */
+    color: var(--azul-escuro);
+    padding: 10px 20px; /* Espaçamento interno dos links */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o link ocupar toda a largura do container */
+    text-align: left;
+    text-transform: none; /* Remove o uppercase dos links principais */
+    letter-spacing: normal; /* Remove o espaçamento de letra */
+    font-weight: 400; /* Peso da fonte normal */
+    border-bottom: none; /* Remove a borda de baixo dos links principais */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+/* Efeito ao passar o mouse sobre os links do dropdown */
+.dropdown-menu li a:hover {
+    background-color: var(--cinza-claro);
+    color: var(--bronze);
+    border-bottom: none; /* Garante que a borda não apareça no hover */
+}
+
+/* Mostra o menu dropdown quando passamos o mouse no item pai (em desktops) */
+.dropdown:hover .dropdown-menu {
+    display: block; /* Mantém o block para o layout */
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Torna acessível */
+    margin-top: 0; /* Remove a margem para um leve efeito de "subida" */
+}
+
+/* Ajustes para o dropdown no menu mobile */
+@media (max-width: 768px) {
+    .dropdown {
+        position: static; /* No mobile, o item não precisa ser relativo */
+    }
+
+    .dropdown-menu {
+        position: static; /* Deixa de ser absoluto e flui com o conteúdo */
+        display: none; /* Continua escondido por padrão */
+        box-shadow: none; /* Remove a sombra */
+        border: none;
+        background-color: transparent; /* Fundo transparente */
+        padding: 10px 0 0 15px; /* Adiciona um recuo para indicar sub-menu */
+        min-width: 100%;
+    }
+
+    /* Regra para exibir no mobile quando o JS adicionar a classe 'active' */
+    .dropdown-menu.active {
+        display: block;
+    }
+    
+    /* Para o clique no mobile, o :hover não é ideal. O JavaScript cuidará disso.
+       Quando o JS for implementado, ele vai adicionar/remover uma classe para mostrar/esconder o menu. */
+}
+
+/* --- FIM DOS ESTILOS DO DROPDOWN --- */
+
+
+/* Main Content Padding */
+main { padding-top: var(--header-height); }
+section { padding: 80px 0; }
+
+/* Hero Carousel */
+.hero-carousel { padding: 0; height: calc(100vh - var(--header-height)); min-height: 500px; max-height: 700px; }
+.main-swiper { width: 100%; height: 100%; }
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.swiper-slide::before { /* Overlay escuro para legibilidade do texto */
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: (37, 57, 81, 0.5); /* Azul escuro com transparência */
+}
+.slide-content {
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 2;
+    text-align: center;
+    color: var(--cinza-claro);
+}
+.slide-content h2 { font-size: 3rem; color: var(--cinza-claro); margin-bottom: 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+.slide-content p { font-size: 1.3rem; margin-bottom: 30px; color: var(--cinza-claro); opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.4); }
+.main-swiper .swiper-button-next, .main-swiper .swiper-button-prev { color: var(--bronze); }
+.main-swiper .swiper-button-next::after, .main-swiper .swiper-button-prev::after { font-size: 2rem !important; }
+.main-swiper .swiper-pagination-bullet-active { background: var(--bronze); }
+
+/* Botões CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--bronze);
+    color: var(--cinza-claro);
+    padding: 15px 35px; /* Maior padding */
+    border-radius: var(--border-radius-padrao);
+    font-family: var(--font-secundaria);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.cta-button:hover { background-color: #8c6649; transform: translateY(-2px); }
+.cta-button-secondary { /* Botão com outline bronze */
+    display: inline-block;
+    background-color: transparent;
+    color: var(--bronze);
+    padding: 13px 33px;
+    border-radius: var(--border-radius-padrao);
+    font-family: var(--font-secundaria);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--bronze);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.cta-button-secondary:hover { background-color: var(--bronze); color: var(--cinza-claro); transform: translateY(-2px); }
+
+
+/* Seção Sobre */
+.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.sobre-imagem img { border-radius: var(--border-radius-padrao); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+/* Seção Diferenciais */
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+/* Remova ou comente a regra antiga para img, se existir:
+.diferencial-item img {
+    margin: 0 auto 20px auto;
+    width: 70px;
+    height: 70px;
+}
+*/
+
+/* Nova regra para os SVGs dos diferenciais */
+.diferencial-icon {
+    width: 70px;  /* Largura desejada para o ícone */
+    height: 70px; /* Altura desejada para o ícone */
+    margin: 0 auto 25px auto; /* Centraliza e adiciona espaço abaixo */
+    display: block; /* Garante que margin auto funcione para centralizar */
+    fill: var(--bronze); /* Cor dos ícones. Pode ser var(--cinza-claro) ou var(--branco) também */
+    /* Se os ícones forem baseados em linha, você pode usar: */
+    /* stroke: var(--bronze); */
+    /* fill: none; */ /* Se for apenas contorno */
+}
+
+.diferencial-item h3 {
+    color: var(--bronze); /* Mantém a cor do título do diferencial */
+    font-size: 1.4rem; /* ou 1.5rem se quiser maior */
+    margin-bottom: 10px;
+}
+
+.diferenciais-grid p { /* Parágrafo dentro dos diferenciais */
+    color: var(--cinza-claro); /* Garante que o texto do parágrafo seja claro sobre o fundo azul */
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Seção Tratamentos */
+.tratamentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+.tratamento-card {
+    background-color: var(--branco);
+    border-radius: var(--border-radius-padrao);
+    box-shadow: 0 5px 15px rgba(37,57,81,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tratamento-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(37,57,81,0.15); }
+.tratamento-imagem { height: 220px; background-size: cover; background-position: center; }
+.tratamento-info { padding: 25px; }
+.tratamento-info h3 { color: var(--azul-escuro); font-size: 1.5rem; margin-bottom: 10px; }
+.tratamento-info p { font-size: 0.95rem; margin-bottom: 20px; min-height: 50px; /* Para alinhar botões */ }
+.ler-mais {
+    font-weight: bold; color: var(--bronze); text-transform: uppercase; font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+.ler-mais:hover { text-decoration: underline; }
+
+/* Seção Equipe */
+.equipe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+.profissional-card {
+    background-color: var(--branco);
+    padding: 10px;
+    border-radius: var(--border-radius-padrao);
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    cursor: pointer; /* Indica clicável para o modal */
+    transition: transform 0.3s ease;
+}
+.profissional-card:hover { transform: scale(1.03); }
+.profissional-card img { width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 20px auto; object-fit: cover; border: 4px solid var(--cinza-claro); }
+.profissional-card h3 { color: var(--azul-escuro); font-size: 1.4rem; margin-bottom: 5px; }
+.profissional-card p { font-size: 0.9rem; color: var(--cinza-medio); margin-bottom: 15px; }
+.ver-mais-profissional {
+    background-color: transparent;
+    color: var(--bronze);
+    border: 1px solid var(--bronze);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.ver-mais-profissional:hover { background-color: var(--bronze); color: var(--branco); }
+
+/* Seção Depoimentos */
+.depoimentos-swiper { padding-bottom: 50px; /* Espaço para paginação */ }
+.depoimento-item {
+    background-color: rgba(255,255,255,0.05); /* Fundo sutil nos slides */
+    padding: 30px;
+    border-radius: var(--border-radius-padrao);
+    text-align: center;
+    color: var(--cinza-claro);
+}
+.depoimento-item p { font-size: 1.1rem; font-style: italic; margin-bottom: 20px; line-height: 1.8; }
+.depoimento-item h4 { font-family: var(--font-secundaria); font-size: 1rem; color: var(--bronze); font-weight: bold; }
+.depoimentos-pagination .swiper-pagination-bullet { background: var(--cinza-medio); opacity: 0.7; }
+.depoimentos-pagination .swiper-pagination-bullet-active { background: var(--bronze); opacity: 1; }
+
+/* Seção Contato */
+.contato-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: flex-start; }
+#contactForm { background-color: var(--cinza-claro); padding: 35px; border-radius: var(--border-radius-padrao); }
+#contactForm label { display: block; margin-bottom: 6px; font-weight: 500; color: var(--azul-escuro); font-size: 0.9rem; }
+#contactForm input, #contactForm textarea {
+    width: 100%; padding: 12px; margin-bottom: 18px; border: 1px solid #ccc;
+    border-radius: 5px; font-family: var(--font-secundaria); font-size: 0.95rem;
+}
+#contactForm textarea { resize: vertical; min-height: 80px; }
+#contactForm button { width: 100%; font-size: 1rem; }
+
+.contato-info h3 { font-size: 1.6rem; color: var(--azul-escuro); margin-bottom: 20px; }
+.contato-info p { display: flex; align-items: center; margin-bottom: 12px; font-size: 0.95rem; }
+.contact-icon { width: 18px; height: 18px; margin-right: 10px; }
+.mapa-placeholder img { border-radius: var(--border-radius-padrao); margin-top: 20px; }
+
+/* Rodapé */
+footer { background-color: #1e2b3a; /* Azul um pouco mais escuro que o principal */ color: var(--cinza-medio); padding: 60px 0 30px 0; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
+.footer-logo h3 { font-size: 1.8rem; color: var(--bronze); margin-bottom: 5px; }
+.footer-logo p { font-family: var(--font-secundaria); font-size: 0.7rem; color: var(--cinza-medio); text-transform: uppercase; letter-spacing: 1px; }
+.footer-nav h4, .footer-contato h4 { color: var(--cinza-claro); font-family: var(--font-principal); font-size: 1.2rem; margin-bottom: 15px; }
+.footer-nav ul { list-style: none; }
+.footer-nav ul li a { color: var(--cinza-medio); font-size: 0.9rem; margin-bottom: 8px; display: block; }
+.footer-nav ul li a:hover { color: var(--bronze); }
+.footer-contato p { font-size: 0.9rem; margin-bottom: 8px; }
+.copyright { text-align: center; padding-top: 30px; border-top: 1px solid #334252; font-size: 0.85rem; }
+/* css/style.css */
+
+/* ... seus outros estilos ... */
+
+/* Estilos para Redes Sociais no Footer */
+.footer-social {
+    margin-top: 20px; /* Espaço acima dos ícones */
+}
+
+.footer-social h4 {
+    color: var(--cinza-claro); /* Cor do título "Siga-nos" */
+    font-family: var(--font-principal);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    /* Se o footer-content for text-align: center, este título também será.
+       Ajuste text-align aqui se necessário para esta seção específica. */
+}
+
+.social-icons {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinha os ícones horizontalmente */
+    justify-content: flex-start; /* Alinha à esquerda por padrão dentro de .footer-contato */
+    /* Se .footer-contato for text-align: center, use: */
+    /* justify-content: center; */
+    gap: 15px; /* Espaço entre os ícones */
+}
+
+.social-icons li {
+    /* Nenhum estilo específico necessário aqui por enquanto */
+}
+
+.social-icons a {
+    display: inline-block; /* Permite definir tamanho e padding */
+    color: var(--cinza-medio); /* Cor inicial do ícone SVG (se usar fill: currentColor) */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--bronze); /* Cor do ícone no hover */
+    transform: translateY(-2px); /* Leve efeito de subir no hover */
+}
+
+.social-icon { /* Classe para os seus SVGs */
+    width: 24px;  /* Tamanho desejado para os ícones */
+    height: 24px;
+    fill: currentColor; /* Faz o SVG herdar a cor do elemento <a> pai */
+}
+
+/* Se você optar por usar <img> para os ícones em vez de SVG inline:
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+.social-icons a:hover img {
+    filter: brightness(0.8); // Exemplo de efeito no hover para img
+}
+*/
+
+/* Modal (Pop-up) */
+.modal {
+    display: none; position: fixed; z-index: 1001; left: 0; top: 0;
+    width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);
+    align-items: center; justify-content: center; padding: 20px;
+}
+.modal.active { display: flex; } /* Para centralizar o modal-content */
+.modal-content {
+    background-color: var(--branco); color: var(--azul-escuro);
+    margin: auto; padding: 30px; border-radius: var(--border-radius-padrao);
+    width: 90%; max-width: 700px; position: relative;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    animation: fadeInModal 0.5s ease-out;
+}
+@keyframes fadeInModal { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+
+.close-modal {
+    color: var(--cinza-medio); float: right; font-size: 32px; font-weight: bold;
+    position: absolute; top: 10px; right: 20px;
+}
+.close-modal:hover, .close-modal:focus { color: var(--preto); text-decoration: none; cursor: pointer; }
+#modalProfissionalInfo img {
+    width: 150px; height: 150px; border-radius: 50%; float: left; margin-right: 25px; margin-bottom: 15px;
+    object-fit: cover; border: 3px solid var(--cinza-claro);
+}
+#modalProfissionalInfo h3 { font-size: 1.8rem; color: var(--bronze); margin-top: 0; }
+#modalProfissionalInfo h4 { font-size: 1.1rem; color: var(--azul-escuro); margin-bottom: 15px; font-family: var(--font-secundaria); }
+#modalProfissionalInfo p { margin-bottom: 10px; font-size: 0.95rem; clear: right; } /* clear para texto fluir abaixo da imagem */
+
+/* Estilos para o Modal de Tratamento (pode herdar muito do .modal e .modal-content) */
+.tratamento-modal-content {
+    /* Se precisar de estilos específicos para o modal de tratamento, adicione aqui */
+    /* Exemplo: talvez um max-width diferente ou padding */
+    max-width: 800px; /* Um pouco maior para mais texto */
+}
+
+#modalTratamentoInfo .modal-tratamento-imagem {
+    width: 100%; /* Imagem ocupa toda a largura do modal ou uma % */
+    max-width: 400px; /* Ou um tamanho fixo */
+    height: auto;
+    border-radius: var(--border-radius-padrao);
+    margin: 0 auto 25px auto; /* Centraliza se for menor que o modal */
+    display: block; /* Para centralizar com margin auto */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#modalTratamentoInfo .modal-tratamento-titulo {
+    font-size: 2rem; /* Título maior no modal */
+    color: var(--bronze);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#modalTratamentoInfo .modal-tratamento-descricao {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify; /* Ou left, conforme preferir */
+}
+
+#modalTratamentoInfo ul {
+    list-style-position: inside;
+    margin-bottom: 25px;
+    padding-left: 5px; /* Pequeno recuo */
+}
+
+#modalTratamentoInfo ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+#modalTratamentoInfo .modal-cta {
+    display: block;
+    width: fit-content; /* Para o botão não ocupar 100% */
+    margin: 30px auto 0 auto; /* Centraliza o botão */
+    text-align: center;
+}
+
+/* Garanta que o .close-modal também funcione para este modal */
+.close-tratamento-modal {
+    /* Se precisar de posicionamento diferente, ajuste aqui */
+    /* Herda de .close-modal */
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .sobre-grid, .contato-wrapper { grid-template-columns: 1fr; }
+    .sobre-imagem { order: -1; margin-bottom: 30px; } /* Imagem acima do texto no mobile */
+    .contato-info { margin-top: 30px; }
+    .slide-content h2 { font-size: 2.5rem; }
+    .slide-content p { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px) {
+    :root { --header-height: 70px; }
+    .section-title { font-size: 2rem; }
+    header nav ul {
+        display: none; flex-direction: column; width: 100%; background-color: var(--branco);
+        position: absolute; top: var(--header-height); left: 0;
+        padding: 10px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #e0e0e0;
+    }
+    header nav ul.active { display: flex; }
+    header nav ul li { margin: 12px 20px; text-align: left; }
+    .menu-toggle { display: block; }
+
+    .hero-carousel { height: auto; min-height: 400px; }
+    .main-swiper .swiper-button-next, .main-swiper .swiper-button-prev { display: none; } /* Ocultar setas no mobile */
+
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .footer-nav ul { padding-left: 0; }
+    .footer-logo, .footer-nav, .footer-contato { margin-bottom: 20px; }
+}
+
+/* Animação de Fade-in */
+.fade-in-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajustes Finais para o Modal */
+#modalProfissionalInfo {
+    max-height: 70vh; /* Limita altura do conteúdo do modal */
+    overflow-y: auto; /* Adiciona scroll se necessário */
+    padding-right: 15px; /* Espaço para a barra de rolagem */
+}
+/* Custom scrollbar para o modal (opcional, Webkit) */
+#modalProfissionalInfo::-webkit-scrollbar {
+    width: 8px;
+}
+#modalProfissionalInfo::-webkit-scrollbar-track {
+    background: var(--cinza-claro);
+    border-radius: 4px;
+}
+#modalProfissionalInfo::-webkit-scrollbar-thumb {
+    background: var(--cinza-medio);
+    border-radius: 4px;
+}
+#modalProfissionalInfo::-webkit-scrollbar-thumb:hover {
+    background: var(--bronze);
+}
+
+/* No final do seu style.css ou em uma seção apropriada */
+
+/* Estilos específicos para a página de contato standalone (que estavam no <style>) */
+.contato-section-standalone {
+    background-color: var(--cinza-claro);
+    padding-top: 60px; /* Ajuste conforme preferir */
+    padding-bottom: 60px;
+}
+
+.contato-section-standalone .section-title {
+    /* Se precisar de algo diferente para o título aqui */
+}
+
+.subtitulo-contato {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--cinza-medio);
+    max-width: 700px;
+    margin: -30px auto 40px auto;
+}
+
+.mapa-container {
+    margin-top: 0px;
+    padding-top: 0px;
+    border-top: 1px solid #ddd;
+}
+.mapa-container h4 {
+    font-size: 1.4rem;
+    color: var(--azul-escuro);
+    margin-bottom: 20px;
+    text-align: left;
+}
+ .contato-section-standalone .contato-info h3 {
+    font-size: 1.8rem;
+    text-align: left;
+}
+.contato-section-standalone .contato-info h4 { /* Título "Horário de Atendimento" */
+     font-size: 1.3rem;
+     color: var(--azul-escuro);
+     margin-top: 25px;
+     margin-bottom: 10px;
+     text-align: left;
+}
+
+/* Estilos para o formulário com ID 'contactFormPage' */
+/* Se os estilos forem IDÊNTICOS aos de #contactForm, você pode simplesmente
+   renomear #contactForm para #contactFormPage no CSS ou mudar o ID no HTML */
+#contactFormPage {
+    background-color: var(--branco); /* Fundo branco para o formulário dentro da seção cinza */
+    padding: 35px;
+    border-radius: var(--border-radius-padrao);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+#contactFormPage label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--azul-escuro);
+    font-size: 0.9rem;
+}
+
+#contactFormPage input,
+#contactFormPage select,
+#contactFormPage textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-secundaria);
+    font-size: 0.95rem;
+    background-color: var(--branco);
+}
+#contactFormPage input:focus,
+#contactFormPage select:focus,
+#contactFormPage textarea:focus {
+    border-color: var(--bronze);
+    box-shadow: 0 0 0 2px rgba(166, 121, 85, 0.2);
+    outline: none;
+}
+
+#contactFormPage button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 15px;
+}
+/* css/style.css */
+
+/* ... seus outros estilos ... */
+
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed; /* Posição fixa em relação à janela do navegador */
+    width: 60px;     /* Largura do botão */
+    height: 60px;    /* Altura do botão */
+    bottom: 40px;    /* Distância da parte inferior da tela */
+    right: 40px;     /* Distância da parte direita da tela */
+    background-color: #25D366; /* Cor verde do WhatsApp */
+    color: #FFF;     /* Cor do ícone (branco) */
+    border-radius: 50%; /* Para torná-lo circular */
+    text-align: center;
+    font-size: 30px; /* Tamanho base para o ícone, o SVG vai escalar */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25); /* Sombra sutil */
+    z-index: 100; /* Para garantir que fique acima de outros elementos */
+    display: flex; /* Para centralizar o ícone SVG */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transição suave */
+}
+
+.whatsapp-float {
+    /* ... outras propriedades ... */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-icon {
+    width: 28x;  /* Tamanho do SVG */
+    height: 28px; /* Tamanho do SVG */
+    fill: #FFFFFF !important; /* Tenta forçar o preenchimento branco */
+}
+
+/* Ajustes para telas menores (opcional) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* --- ESTILOS PARA O ACORDEÃO DE MÍDIAS --- */
+
+/* Botão que abre/fecha o conteúdo */
+.collapsible-toggle {
+    background-color: transparent;
+    color: var(--bronze);
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid var(--bronze);
+    text-align: center;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: var(--font-secundaria);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: var(--border-radius-padrao);
+    margin-top: 15px;
+}
+
+.collapsible-toggle:hover, .collapsible-toggle.active {
+    background-color: var(--bronze);
+    color: var(--branco);
+}
+
+/* Container do conteúdo que será mostrado/escondido */
+.collapsible-content {
+    padding: 0 18px;
+    max-height: 0; /* Começa com altura 0 (escondido) */
+    overflow: hidden; /* Esconde o conteúdo que transborda */
+    transition: max-height 0.5s ease-out; /* Animação suave */
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para destacar */
+    border-radius: 0 0 var(--border-radius-padrao) var(--border-radius-padrao);
+}
+
+.collapsible-content ul {
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.collapsible-content ul li a {
+    display: block;
+    padding: 8px 10px;
+    color: var(--cinza-claro);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.collapsible-content ul li a:hover {
+    background-color: rgba(166, 121, 85, 0.5); /* Bronze com transparência */
+    color: var(--branco);
+}
+/* Ícones na seção de contato */
+.contact-icon {
+    width: 20px;          /* Tamanho do ícone */
+    height: 20px;
+    margin-right: 12px;   /* Espaço entre o ícone e o texto */
+    flex-shrink: 0;       /* Impede que o ícone encolha se não houver espaço */
+    position: relative;   /* Permite ajuste fino da posição */
+    top: -2px;            /* Sobe o ícone um pouquinho para alinhar melhor com o centro do texto */
+    color: var(--bronze); /* Define a cor padrão dos ícones, usando sua variável */
+}
+/* ================================================================== */
+/* --- ESTILOS PARA O MODAL (POP-UP) DOS PROFISSIONAIS --- */
+/* ================================================================== */
+
+/* Regras gerais para todos os modais (fundo e animação) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(37, 57, 81, 0.8); /* Fundo azul escuro com mais opacidade */
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px;
+}
+.modal.active { 
+    display: flex; 
+}
+
+/* A caixa de conteúdo branca */
+.modal-content {
+    background-color: var(--branco); 
+    color: var(--azul-escuro);
+    margin: auto; 
+    padding: 35px;
+    border-radius: var(--border-radius-padrao);
+    width: 90%; 
+    max-width: 800px; /* Aumentado para dar mais espaço */
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    animation: fadeInModal 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animação mais suave */
+}
+
+@keyframes fadeInModal { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Botão de fechar (X) */
+.close-modal {
+    color: var(--cinza-medio);
+    position: absolute; 
+    top: 15px; 
+    right: 25px;
+    font-size: 36px; 
+    font-weight: bold;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.close-modal:hover, 
+.close-modal:focus { 
+    color: var(--preto); 
+    text-decoration: none; 
+    cursor: pointer;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Layout flex para as colunas dentro do modal de profissionais */
+#modalProfissionalInfo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que o texto quebre abaixo da imagem em telas pequenas */
+    gap: 30px; 
+    align-items: flex-start; /* Alinha o topo da imagem com o topo do texto */
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 5px; /* Pequeno padding interno para o scroll não colar nas bordas */
+}
+
+/* Imagem do profissional (coluna da esquerda) */
+#modalProfissionalInfo img {
+    width: 240px; /* Um pouco maior */
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius-padrao);
+    border: 5px solid var(--branco);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+/* Bloco de texto (coluna da direita) */
+#modalProfissionalInfo .texto-profissional {
+    flex: 1; /* Ocupa o espaço restante */
+    min-width: 300px; /* Largura mínima antes de quebrar a linha */
+}
+
+/* Estilos dos textos dentro do modal */
+#modalProfissionalInfo .texto-profissional h3 {
+    font-size: 2rem;
+    color: var(--azul-escuro);
+    margin-bottom: 5px;
+}
+#modalProfissionalInfo .texto-profissional h4 {
+    font-size: 1.1rem;
+    color: var(--cinza-medio);
+    font-family: var(--font-secundaria);
+    margin-bottom: 25px;
+}
+#modalProfissionalInfo .texto-profissional p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Lista de titulações no modal */
+#modalProfissionalInfo .lista-titulos-modal {
+    list-style-type: '✓  '; /* Marcador de lista personalizado */
+    padding-left: 20px;
+    margin-top: 20px;
+}
+#modalProfissionalInfo .lista-titulos-modal li {
+    margin-bottom: 12px;
+    padding-left: 10px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Scrollbar customizado para o modal */
+#modalProfissionalInfo::-webkit-scrollbar {
+    width: 8px;
+}
+#modalProfissionalInfo::-webkit-scrollbar-track {
+    background: var(--cinza-claro);
+    border-radius: 4px;
+}
+#modalProfissionalInfo::-webkit-scrollbar-thumb {
+    background: var(--cinza-medio);
+    border-radius: 4px;
+}
+#modalProfissionalInfo::-webkit-scrollbar-thumb:hover {
+    background: var(--bronze);
+}
+/* =================================================================== */
+/* --- ESTILOS PARA O ACORDEÃO (DROPDOWN) DA PÁGINA MÍDIAS --- */
+/* =================================================================== */
+
+/* Estilo do botão "Saiba mais" */
+.collapsible-toggle {
+    background-color: transparent;
+    color: var(--bronze);
+    cursor: pointer;
+    padding: 12px 18px;
+    width: 100%;
+    border: 1px solid var(--bronze);
+    text-align: center;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: var(--font-secundaria);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: var(--border-radius-padrao);
+    margin-top: 20px;
+}
+
+/* Estilo do botão quando está ativo (aberto) ou com mouse em cima */
+.collapsible-toggle:hover, 
+.collapsible-toggle.active {
+    background-color: var(--bronze);
+    color: var(--branco);
+}
+
+/* O container do conteúdo que abre e fecha */
+.collapsible-content {
+    max-height: 0; /* Começa com altura 0, totalmente escondido */
+    overflow: hidden; /* Garante que o conteúdo não vaze */
+    transition: max-height 0.5s ease-out; /* Animação suave para abrir/fechar */
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para o conteúdo */
+    border-radius: 0 0 var(--border-radius-padrao) var(--border-radius-padrao);
+    padding-left: 18px; /* Mantém o padding lateral consistente */
+    padding-right: 18px;
+}
+
+/* Adiciona padding vertical somente quando o conteúdo está expandido */
+.collapsible-toggle.active + .collapsible-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Lista de links (Artigos, Livros, etc.) dentro do acordeão */
+.collapsible-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collapsible-content ul li a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--cinza-claro);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    margin-bottom: 5px;
+}
+
+.collapsible-content ul li a:hover {
+    background-color: rgba(166, 121, 85, 0.5); /* Cor bronze com transparência */
+    color: var(--branco);
+}

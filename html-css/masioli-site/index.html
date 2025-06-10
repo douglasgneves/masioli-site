@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Masioli Odontologia & Associados - Excelência e sofisticação em cuidados odontológicos.">
+    <title>Masioli Odontologia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Adicionar link para biblioteca de carrossel, ex: Swiper.js ou Slick Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="icon" href="images/favicon_Prancheta-1.png" type="logo clínica">
+    <!-- <link rel="icon" href="images/favicon.png" type="image/png"> -->
+</head>
+<body>
+    <header>
+        <div class="container">
+                        <div class="logo">
+                <a href="index.html" aria-label="Página Inicial Masioli Odontologia">
+                    <img src="images/logo-masioli.png" alt="Logo Masioli Odontologia & Associados" id="header-logo">
+                    <!-- Ou se for PNG: <img src="images/logo-masioli.png" alt="Logo Masioli Odontologia & Associados" id="header-logo"> -->
+                </a>
+            </div>
+            <nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">A Clínica</a></li>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+
+        <!-- Item de Mídias com o dropdown -->
+        <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle">Mídias ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="lojavitao">Livros Autorais</a></li>
+                <li><a href="artigos.html">Redes Sociais</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contato.html">Contato</a></li>
+
+        <!-- Item de Loja com o dropdown -->
+        <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle">Loja ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO INÍCIO - HERO CAROUSEL -->
+        <section id="inicio" class="hero-carousel">
+            <div class="swiper-container main-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide" style="background-image: url('images/Foto-Capa-Home-scaled-e1614960265705.jpg');">
+                        <div class="slide-content container">
+                            <h2>Sorrisos que Transformam Vidas</h2>
+                            <p>Tecnologia e arte para a sua saúde bucal e estética.</p>
+                            <a href="contato.html" class="cta-button">Agende sua Avaliação</a>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide" style="background-image: url('images/velhinha\ sorrindo.jpg');">
+                        <div class="slide-content container">
+                            <h2>Cuidado Personalizado e Atemporal</h2>
+                            <p>Conheça nossa abordagem focada em você.</p>
+                            <a href="#sobre" class="cta-button">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <section id="">
+            <div class="container">
+                <h2 class="section-title">Bem-Vindo à Masioli Odontologia</h2>
+                <div class="sobre-grid">
+                    <div class="sobre-texto">
+                        <h3>Marco Masioli</h3>
+                        <p>fundador da Masioli Odontologia, começou de uma forma muito simples, iniciou seu caminho aos 14 anos com fotografia junto com sua família. Mais tarde decidiu cursar odontologia e ingressou na Universidade Federal do Espírito Santo, em 1988. <br><br>Habilidoso, iniciou atendimento no seu consultório em Jardim da Penha e ao longo dos anos se mudou, até encontrar um lugar que ele pudesse oferecer exclusividade e conforto para seus pacientes, sendo assim o atual local da clínica. Como sempre planejou trabalhar em equipe, junto a ele há outros excelentes profissionais que buscam oferecer o melhor em prevenção, saúde, estética e qualidade de vida.
+
+</p>
+                        <a href="contato.html" class="cta-button-secondary">Fale Conosco</a>
+                    </div>
+                    <div class="sobre-imagem">
+                        <img src="images/Capa-home2.jpg" alt="Foto do Edifício Masi Empire">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE A CLÍNICA (COM ORDEM INVERTIDA NO HTML) -->
+<section id="sobre">
+    <div class="container">
+        <h2 class="section-title">A Clínica</h2>
+        <div class="sobre-grid">
+            <div class="sobre-imagem"> <!-- IMAGEM PRIMEIRO (ESQUERDA) -->
+                <img src="images/Foto-Home-a-clinica2.jpg" alt="Ambiente da Clínica Masioli">
+            </div>
+            <div class="sobre-texto"> <!-- TEXTO DEPOIS (DIREITA) -->
+                <h3>A Masioli Odontologia</h3>
+                <p>É uma clínica que está localizada em um dos melhores lugares da capital do Espírito Santo. Conta com estacionamento próprio e com vista para o cartão postal da cidade, Convento da Penha, Terceira Ponte e a Baía de Vitória.<br><br>Nosso objetivo é promover excelência nos procedimentos clínicos e uma experiência única em nosso espaço.</p>
+                <a href="contato.html" class="cta-button-secondary">Venha nos conhecer!</a> <!-- ATENÇÃO: Link para contato.html -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEÇÃO NOSSOS DIFERENCIAIS -->
+<section id="diferenciais" class="bg-azul-escuro">
+    <div class="container">
+        <h2 class="section-title light-text">Nossos Diferenciais</h2>
+        <div class="diferenciais-grid">
+            <!-- Diferencial 1: Tecnologia de Ponta -->
+            <div class="diferencial-item">
+                <!-- SUBSTITUA PELO SEU SVG DE TECNOLOGIA -->
+                <svg viewBox="0 0 24 24" class="diferencial-icon" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Exemplo de placeholder de SVG - COLOQUE O SEU CÓDIGO SVG AQUI -->
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    <!-- FIM DO SEU SVG DE TECNOLOGIA -->
+                </svg>
+                <h3>Tecnologia de Ponta</h3>
+                <p>Equipamentos modernos para diagnósticos precisos e tratamentos eficazes.</p>
+            </div>
+
+            <!-- Diferencial 2: Atendimento Personalizado -->
+            <div class="diferencial-item">
+                <!-- SUBSTITUA PELO SEU SVG DE ATENDIMENTO PERSONALIZADO -->
+                <svg viewBox="0 0 24 24" class="diferencial-icon" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Exemplo de placeholder de SVG - COLOQUE O SEU CÓDIGO SVG AQUI -->
+                    <path d="M12 5.5c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5zM12 1c-3.87 0-7 3.13-7 7 0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3>Atendimento Personalizado</h3>
+                <p>Foco total nas suas necessidades e expectativas individuais.</p>
+            </div>
+
+            <!-- Diferencial 3: Ambiente Acolhedor -->
+            <div class="diferencial-item">
+                <!-- SUBSTITUA PELO SEU SVG DE AMBIENTE ACOLHEDOR -->
+                <svg viewBox="0 0 24 24" class="diferencial-icon" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Exemplo de placeholder de SVG - COLOQUE O SEU CÓDIGO SVG AQUI -->
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <h3>Ambiente Acolhedor</h3>
+                <p>Espaço projetado para seu conforto e tranquilidade durante o tratamento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- SEÇÃO TRATAMENTOS -->
+<section id="tratamentos">
+    <div class="container">
+        <h2 class="section-title">Áreas</h2>
+        <div class="tratamentos-grid">
+            <!-- Item Tratamento 1 -->
+            <div class="tratamento-card">
+                <div class="tratamento-imagem" style="background-image: url('images/dentistica-restauração.jpg');"></div>
+                <div class="tratamento-info">
+                    <h3>Dentística Restauradora</h3>
+                    <p>Clareamento, facetas, lentes de contato e design do sorriso.</p>
+                    <!-- Adicionado data-tratamento-id -->
+                    <a href="#" class="ler-mais open-tratamento-modal" data-tratamento-id="estetica">Saiba Mais</a>
+                </div>
+            </div>
+            <!-- Item Tratamento 2 -->
+            <div class="tratamento-card">
+                <div class="tratamento-imagem" style="background-image: url('images/ortodontia.jpg');"></div>
+                <div class="tratamento-info">
+                    <h3>Ortodontia</h3>
+                    <p>Alinhadores invisíveis e aparelhos convencionais.</p>
+                    <a href="#" class="ler-mais open-tratamento-modal" data-tratamento-id="ortodontia">Saiba Mais</a>
+                </div>
+            </div>
+            <!-- Item Tratamento 4-->
+             <div class="tratamento-card">
+                <div class="tratamento-imagem" style="background-image: url('images/endodontia.webp');"></div>
+                <div class="tratamento-info">
+                    <h3>Endodontia</h3>
+                    <p>Canal</p>
+                    <a href="#" class="ler-mais open-tratamento-modal" data-tratamento-id="ortodontia">Saiba Mais</a>
+                </div>
+            </div>
+            <!-- Item Tratamento 5-->
+             <div class="tratamento-card">
+                <div class="tratamento-imagem" style="background-image: url('images/odontopediatria.jpg');"></div>
+                <div class="tratamento-info">
+                    <h3>Odontopediatria</h3>
+                    <p>Alinhadores invisíveis e aparelhos convencionais.</p>
+                    <a href="#" class="ler-mais open-tratamento-modal" data-tratamento-id="ortodontia">Saiba Mais</a>
+                </div>
+            </div>
+            <!-- Item Tratamento 6-->
+             <div class="tratamento-card">
+                <div class="tratamento-imagem" style="background-image: url('images/harmonização\ oroacial.jpg');"></div>
+                <div class="tratamento-info">
+                    <h3>Harmonização Facial</h3>
+                    <p>Alinhadores invisíveis e aparelhos convencionais.</p>
+                    <a href="#" class="ler-mais open-tratamento-modal" data-tratamento-id="ortodontia">Saiba Mais</a>
+                </div>
+            </div>
+            <!-- Item Tratamento 7-->
+             <div class="tratamento-card">
+                <div class="tratamento-imagem" style="background-image: url('images/periodontia.jpg');"></div>
+                <div class="tratamento-info">
+                    <h3>Periodontia</h3>
+                    <p>Alinhadores invisíveis e aparelhos convencionais.</p>
+                    <a href="#" class="ler-mais open-tratamento-modal" data-tratamento-id="ortodontia">Saiba Mais</a>
+                </div>
+            </div>
+            <!-- Adicione mais tratamentos conforme necessário, cada um com um data-tratamento-id único -->
+        </div>
+    </div>
+</section>
+
+        <!-- SEÇÃO EQUIPE -->
+        <section id="equipe" class="bg-cinza-claro">
+            <div class="container">
+                <h2 class="section-title">Equipe Profissional</h2>
+                <div class="equipe-grid">
+                    <!-- Profissional 1 -->
+                    <div class="profissional-card" data-profissional-id="dr-masioli">
+                        <img src="images/dr-masioli-nova-mini.jpg" alt="Dra. Masioli">
+                        <h3>Dr. Prof. PhD Marco A. Masioli</h3>
+                        <p>CRO 2344 ES<br>Dentística</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+                    <!-- Profissional 2 -->
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dra-bianca-nova-mini.jpg" alt="Dr. Associado">
+                        <h3>Dra. Profª PhD Bianca M. Vimercati</h3>
+                        <p>CRO 3882 ES<Br> Dentística</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dr-hindra-nova-mini.jpg" alt="Dr. Associado">
+                        <h3>Dra. Hindra Colodetti Masioli</h3>
+                        <p>CRO 5551 ES <br> Dentística</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/miniatura_0000_Dra-Quezia-Godinho.jpg" alt="Dr. Associado">
+                        <h3>Dra. Quezia Godinho de Oliveira</h3>
+                        <p>CRO 5653 ES <br> Dentística</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dra-deise-nova-mini.png" alt="Dr. Associado">
+                        <h3>Dra. Deise Lima Cunha</h3>
+                        <p>CRO 3908 ES <br> Ortodontia</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/miniatura_0007_Dr-Kleber-Borgo-Kill.jpg" alt="Dr. Associado">
+                        <h3>Dr. Kleber Borgo Kill</h3>
+                        <p>CRO 2349 ES <br> Endodontia</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dra-carol-nova-mini.jpg" alt="Dr. Associado">
+                        <h3>Dra. Ana Carolina Capetini</h3>
+                        <p>CRO 11423 ES<br>Clínico Geral</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dr-douglas-nova-mini.jpg" alt="Dr. Associado">
+                        <h3>Dr. Douglas Neves</h3>
+                        <p>CRO 8209 ES <br> Dentística</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dra-thalita-nova-mini.jpg" alt="Dr. Associado">
+                        <h3>Dra. Thalita Zardo Januth</h3>
+                        <p>CRO 11467 ES <br> Clínica Geral</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <div class="profissional-card" data-profissional-id="dr-associado1">
+                        <img src="images/dra-gabriela-nova-mini.jpg" alt="Dr. Associado">
+                        <h3>Dra. Gabriela Furlan Furtado</h3>
+                        <p>CRO 5773 <br> Odontopediatra</p>
+                        <button class="ver-mais-profissional">Ver Mais</button>
+                    </div>
+
+                    <!-- Adicione mais profissionais -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DEPOIMENTOS (Carrossel) -->
+        <section id="depoimentos" class="bg-azul-escuro">
+            <div class="container">
+                <h2 class="section-title light-text">O que nossos pacientes dizem</h2>
+                <div class="swiper-container depoimentos-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Depoimento 1 -->
+                        <div class="swiper-slide depoimento-item">
+                            <p>"Atendimento excepcional e resultados incríveis! O Dr. Masioli e sua equipe são muito atenciosos e competentes. Recomendo!"</p>
+                            <h4>- Paciente Satisfeito A</h4>
+                        </div>
+                        <!-- Depoimento 2 -->
+                        <div class="swiper-slide depoimento-item">
+                            <p>"Desde a recepção até o final do tratamento, fui muito bem tratado. A clínica é linda e o profissionalismo é impecável."</p>
+                            <h4>- Paciente Satisfeito B</h4>
+                        </div>
+                         <!-- Adicione mais depoimentos -->
+                    </div>
+                    <div class="swiper-pagination depoimentos-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+        <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html" aria-label="Página Inicial Masioli Odontologia">
+                    <h3>MASIOLI</h3>
+                    <p>ODONTOLOGIA & ASSOCIADOS</p>
+                </a>
+            </div>
+            <div class="footer-nav">
+                <h4>Navegue</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">A Clínica</a></li>
+                    <li><a href="index.html#tratamentos">Tratamentos</a></li>
+                    <li><a href="index.html#equipe">Equipe</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-contato">
+                <h4>Contato Rápido</h4>
+                <p>(27) 9 9960-3444</p>
+                <p>clínica@masioliodontologia.com.br</p>
+                
+                <div class="footer-social">
+    <h4>Siga-nos</h4>
+    <ul class="social-icons">
+        <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Instagram">
+                <!-- Ícone Instagram -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Facebook">
+                <!-- Ícone Facebook -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso TikTok">
+                <!-- Ícone TikTok -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.349 7.423c-.001-.016-.001-.031-.002-.047a.765.765 0 00-.14-.343.759.759 0 00-.333-.213.75.75 0 00-.404-.035c-.015.002-.03.006-.045.01h-.001c-.341.049-1.229.173-2.459.173-1.849 0-2.583-.54-2.583-1.545V1.25C13.382.56 12.822 0 12.132 0H4.5C4.224 0 4 0 4 0v16.33c0 3.42 2.36 4.67 4.953 4.67 2.593 0 4.953-1.25 4.953-4.67v-5.28c.053 2.04 1.633 3.48 3.693 3.48 1.48 0 2.59-1.25 2.59-2.59s-1.11-2.59-2.59-2.59c-1.12 0-2.36.75-2.36 2.08v-3.08c1.391-.04 2.3-.51 2.87-1.18.002-.002.003-.004.005-.006z"/></svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso YouTube">
+                <!-- Ícone YouTube -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+
+            <!-- NOVA DIV PARA HORÁRIO DE FUNCIONAMENTO -->
+            <div class="footer-horario">
+                <h4>Horário de Funcionamento</h4>
+                <p>Segunda a Sexta: 08h às 18h</p>
+                <p>Sábado: 08h às 12h</p>
+                <p class="urgencias">Urgências: Atendemos aos finais de semana e feriados. <a href="27999603444">Ligue!</a></p>
+                <!-- Ou se não houver um número específico para urgência, apenas a informação:
+                <p class="urgencias">Atendemos urgências aos finais de semana e feriados.</p>
+                -->
+            </div>
+            <!-- FIM DA NOVA DIV -->
+
+        </div>
+        <div class="copyright">
+            <p>© <span id="currentYear"></span> Masioli Odontologia & Associados. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+    <!-- Modal para Detalhes do Profissional -->
+    <div id="profissionalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div id="modalProfissionalInfo">
+                <!-- Conteúdo será preenchido via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Detalhes do Tratamento -->
+<div id="tratamentoModal" class="modal">
+    <div class="modal-content tratamento-modal-content"> <!- Adicionada classe específica ->
+        <span class="close-modal close-tratamento-modal">×</span>
+        <div id="modalTratamentoInfo">
+            <!-- Conteúdo será preenchido via JS -->
+            <!-- Exemplo de como poderia ser a estrutura interna:
+            <img src="caminho_imagem_tratamento.jpg" alt="Nome do Tratamento" class="modal-tratamento-imagem">
+            <h3 class="modal-tratamento-titulo">Nome do Tratamento</h3>
+            <p class="modal-tratamento-descricao">Descrição detalhada do tratamento aqui...</p>
+            <p><strong>Benefícios:</strong></p>
+            <ul>
+                <li>Benefício 1</li>
+                <li>Benefício 2</li>
+            </ul>
+            <a href="#contato" class="cta-button modal-cta">Agendar Avaliação para este Tratamento</a>
+            -->
+        </div>
+    </div>
+</div>
+    <!-- ... seu footer e modais ... -->
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5527999603444" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Entre em contato pelo WhatsApp">
+      <img class="whatsapp-icon-img" src="images/icone-whatsapp.svg">
+    </a>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
