@@ -1,26 +1,50 @@
-import { useState } from 'react'
+// src/App.jsx
+
+import React, { useState } from 'react';
 
 function App() {
-  // [variável de estado, função para atualizar] = useState(valor inicial)
-  const [count, setCount] = useState(0);
+  const [tasks, setTasks] = useState([]);
+  const [inputValue, setInputValue] = useState('');
 
-  // Função que será chamada quando o botão for clicado
-  function handleIncrement() {
-    // Usamos a função para dizer ao React qual o novo valor do estado
-    setCount(count + 1);
+  function handleAddTask() {
+    if (inputValue.trim() === '') return;
+    setTasks([...tasks, inputValue]);
+    setInputValue('');
+  }
+
+  // Passo 1: Criar a função de remover
+  // Ela recebe o índice da tarefa que queremos remover
+  function handleRemoveTask(indexToRemove) {
+    // Usamos .filter para criar um novo array
+    // contendo apenas os itens que NÃO têm o índice a ser removido
+    const newTasks = tasks.filter((_, index) => index !== indexToRemove);
+    setTasks(newTasks);
   }
 
   return (
     <div>
-      <h1>Meu Contador React</h1>
-      {/* Exibimos o valor atual do estado */}
-      <h2>Contagem atual: {count}</h2>
-      {/* Quando o botão é clicado, chamamos nossa função */}
-      <button onClick={handleIncrement}>
-        Aumentar
-      </button>
+      <h1>Minha Lista de Tarefas</h1>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Digite uma nova tarefa"
+      />
+      <button onClick={handleAddTask}>Adicionar</button>
+
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>
+            {task}
+            {/* Passo 2: Adicionar o botão de remover */}
+            <button onClick={() => handleRemoveTask(index)}>
+              Remover
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

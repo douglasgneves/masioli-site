@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'Lawrence'; src: url('../fonts/DEMO-lawrence_regular.otf') format('woff2');
+    font-family: 'Lawrence'; src: url('../fonts/Lawrence\ Bold.otf') format('');
 }
 @font-face {
-    font-family: 'Peugeot'; src: url('../fonts/Peugeot-Light.otf') format('woff2');
+    font-family: 'Peugeot'; src: url('../fonts/Peugeot-Light.otf') format('');
 }
 
 :root {
