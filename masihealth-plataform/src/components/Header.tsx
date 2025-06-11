@@ -14,12 +14,22 @@ export default function Header() {
         </Link>
 
         {/* Navegação Principal */}
-        <nav className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-green-400 transition-colors">Início</Link>
-          <Link href="/sobre" className="hover:text-green-400 transition-colors">Sobre Nós</Link>
-          <Link href="/produtos" className="hover:text-green-400 transition-colors">Produtos</Link>
-          <Link href="/cursos" className="hover:text-green-400 transition-colors">Cursos</Link>
-        </nav>
+        {/* Navegação Principal */}
+<nav className="hidden md:flex space-x-6 items-center">
+  {/* Link Externo para Odontologia */}
+  <a 
+    href="https://www.google.com" // SUBSTITUA PELO LINK REAL DO SEU SITE DE ODONTO
+    target="_blank" // Abre em uma nova aba
+    rel="noopener noreferrer" // Boas práticas de segurança para links externos
+    className="hover:text-green-400 transition-colors"
+  >
+    Masioli Odontologia
+  </a>
+
+  <Link href="/masikids" className="hover:text-green-400 transition-colors">MasiKids</Link>
+  <Link href="/cursos" className="hover:text-green-400 transition-colors">Mais Cursos</Link>
+  <Link href="/loja" className="hover:text-green-400 transition-colors">Loja</Link>
+</nav>
 
         {/* Botão de Login */}
         <Link href="/login" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
