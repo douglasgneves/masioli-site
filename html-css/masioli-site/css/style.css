@@ -317,41 +317,149 @@ section { padding: 80px 0; }
     font-size: 0.95rem;
 }
 
-/* Seção Tratamentos */
-.tratamentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+/* Seção Tratamentos - CÓDIGO FINAL E RESPONSIVO */
+
+/* === ESTILOS PARA CELULAR (PADRÃO) === */
+/* Por padrão, os cards ficarão um embaixo do outro */
+.tratamentos-grid {
+    display: grid;
+    /* Começamos com uma única coluna para a melhor visualização em celulares */
+    grid-template-columns: 1fr;
+    gap: 25px; 
+}
+
+/* === ESTILOS PARA TELAS GRANDES (DESKTOP) === */
+/* @media (min-width: 1200px) significa: "SE a largura da tela for 1200px ou MAIS" */
+@media (min-width: 1200px) {
+    .tratamentos-grid {
+        /* Somente em telas grandes, o grid terá 6 colunas iguais */
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* === ESTILOS DOS CARDS (FUNCIONAM EM QUALQUER TELA) === */
 .tratamento-card {
     background-color: var(--branco);
     border-radius: var(--border-radius-padrao);
     box-shadow: 0 5px 15px rgba(37,57,81,0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; 
 }
-.tratamento-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(37,57,81,0.15); }
-.tratamento-imagem { height: 220px; background-size: cover; background-position: center; }
-.tratamento-info { padding: 25px; }
-.tratamento-info h3 { color: var(--azul-escuro); font-size: 1.5rem; margin-bottom: 10px; }
-.tratamento-info p { font-size: 0.95rem; margin-bottom: 20px; min-height: 50px; /* Para alinhar botões */ }
-.ler-mais {
-    font-weight: bold; color: var(--bronze); text-transform: uppercase; font-size: 0.85rem;
-    letter-spacing: 0.5px;
-}
-.ler-mais:hover { text-decoration: underline; }
 
-/* Seção Equipe */
-.equipe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+.tratamento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37,57,81,0.15);
+}
+
+.tratamento-imagem {
+    height: 180px; /* Reduzi um pouco para caber melhor na linha de 6 */
+    background-size: cover;
+    background-position: center;
+}
+
+.tratamento-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tratamento-info h3 {
+    color: var(--azul-escuro);
+    font-size: 1.2rem; /* Ajustei o tamanho para caber bem no layout de 6 colunas */
+    margin-bottom: 15px;
+    text-align: center;
+    min-height: 45px; /* Garante que títulos de 1 ou 2 linhas tenham a mesma altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tratamento-info p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Esta é a regra que alinha os botões! */
+}
+
+.ler-mais {
+    font-weight: bold;
+    color: var(--bronze);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.ler-mais:hover {
+    text-decoration: underline;
+}
+
+/* Seção Equipe - Layout Responsivo com 5 colunas no Desktop */
+
+/* === ESTILO PADRÃO (PARA CELULARES E TABLETS) === */
+/* Por padrão, o grid se ajusta automaticamente. Em celulares, será 1 coluna. Em tablets, 2 ou 3. */
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* === ESTILO PARA DESKTOP (5 COLUNAS) === */
+/* @media (min-width: 1400px) significa: "SE a largura da tela for 1400px ou mais..." */
+/* Este valor pode ser ajustado se necessário (ex: 1200px ou 1600px) */
+@media (min-width: 1400px) {
+    .equipe-grid {
+        /* "...então, force o grid a ter exatamente 5 colunas de tamanho igual." */
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* === ESTILOS DOS CARDS (FUNCIONAM EM QUALQUER TELA) === */
 .profissional-card {
     background-color: var(--branco);
-    padding: 10px;
+    padding: 25px 15px;
     border-radius: var(--border-radius-padrao);
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    cursor: pointer; /* Indica clicável para o modal */
     transition: transform 0.3s ease;
+    /* A base para o alinhamento vertical */
+    display: flex;
+    flex-direction: column; 
 }
-.profissional-card:hover { transform: scale(1.03); }
-.profissional-card img { width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 20px auto; object-fit: cover; border: 4px solid var(--cinza-claro); }
-.profissional-card h3 { color: var(--azul-escuro); font-size: 1.4rem; margin-bottom: 5px; }
-.profissional-card p { font-size: 0.9rem; color: var(--cinza-medio); margin-bottom: 15px; }
+
+.profissional-card:hover {
+    transform: translateY(-5px); 
+}
+
+.profissional-card img {
+    width: 130px; /* Reduzindo um pouco para caber melhor no layout de 5 */
+    height: 130px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    object-fit: cover;
+    border: 4px solid var(--cinza-claro);
+}
+
+.profissional-card h3 {
+    color: var(--azul-escuro);
+    font-size: 1.25rem; /* Fonte um pouco menor para o layout mais denso */
+    margin-bottom: 5px;
+}
+
+.profissional-card p {
+    font-size: 0.9rem;
+    color: var(--cinza-medio);
+    margin-bottom: 20px;
+    /* A regra que empurra o botão para a base do card */
+    flex-grow: 1;
+}
+
 .ver-mais-profissional {
     background-color: transparent;
     color: var(--bronze);
@@ -362,8 +470,14 @@ section { padding: 80px 0; }
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    align-self: center; 
+    min-width: 120px;
 }
-.ver-mais-profissional:hover { background-color: var(--bronze); color: var(--branco); }
+
+.ver-mais-profissional:hover {
+    background-color: var(--bronze);
+    color: var(--branco); 
+}
 
 /* Seção Depoimentos */
 .depoimentos-swiper { padding-bottom: 50px; /* Espaço para paginação */ }
@@ -551,34 +665,115 @@ footer { background-color: #1e2b3a; /* Azul um pouco mais escuro que o principal
     /* Herda de .close-modal */
 }
 
-/* Responsividade */
-@media (max-width: 992px) {
-    .sobre-grid, .contato-wrapper { grid-template-columns: 1fr; }
-    .sobre-imagem { order: -1; margin-bottom: 30px; } /* Imagem acima do texto no mobile */
-    .contato-info { margin-top: 30px; }
-    .slide-content h2 { font-size: 2.5rem; }
-    .slide-content p { font-size: 1.1rem; }
+/* ==========================================================================
+   Responsividade - Estilos para diferentes tamanhos de tela
+   ========================================================================== */
+
+/* === Telas de Desktop Grandes (Layout de Tratamentos e Equipe) === */
+/* Aplica-se a telas com 1200px de largura ou mais */
+@media (min-width: 1200px) {
+    .tratamentos-grid {
+        /* Layout de 6 colunas para os tratamentos */
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .equipe-grid {
+        /* Layout de 5 colunas para a equipe */
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
-@media (max-width: 768px) {
-    :root { --header-height: 70px; }
-    .section-title { font-size: 2rem; }
-    header nav ul {
-        display: none; flex-direction: column; width: 100%; background-color: var(--branco);
-        position: absolute; top: var(--header-height); left: 0;
-        padding: 10px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        border-top: 1px solid #e0e0e0;
+
+/* === Telas de Tablet em Paisagem e Desktops Pequenos === */
+/* Aplica-se a telas com 992px de largura ou menos */
+@media (max-width: 992px) {
+    .section-title { font-size: 2.2rem; }
+    .slide-content h2 { font-size: 2.5rem; }
+    .slide-content p { font-size: 1.1rem; }
+
+    /* Colapsa grids para uma única coluna */
+    .sobre-grid, 
+    .contato-wrapper { 
+        grid-template-columns: 1fr; 
+        gap: 20px;
     }
-    header nav ul.active { display: flex; }
-    header nav ul li { margin: 12px 20px; text-align: left; }
-    .menu-toggle { display: block; }
+    .sobre-imagem { 
+        order: -1; /* Imagem fica acima do texto no mobile */
+        margin-bottom: 30px; 
+    }
+    .contato-info { margin-top: 30px; }
+}
 
-    .hero-carousel { height: auto; min-height: 400px; }
-    .main-swiper .swiper-button-next, .main-swiper .swiper-button-prev { display: none; } /* Ocultar setas no mobile */
 
-    .footer-content { grid-template-columns: 1fr; text-align: center; }
-    .footer-nav ul { padding-left: 0; }
-    .footer-logo, .footer-nav, .footer-contato { margin-bottom: 20px; }
+/* === Telas de Tablet em Retrato e Celulares === */
+/* Aplica-se a telas com 768px de largura ou menos */
+@media (max-width: 768px) {
+    :root { 
+        --header-height: 70px; /* Altura do header no mobile */
+    }
+    .section-title { 
+        font-size: 2rem; 
+    }
+
+    /* --- Header e Menu Mobile (com animação) --- */
+    .menu-toggle { 
+        display: block; /* Mostra o ícone do hamburger */
+    }
+    header nav ul {
+        /* Esconde o menu fora da tela e o torna transparente */
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--branco);
+        
+        display: flex; /* Mantém o flex para alinhamento interno */
+        flex-direction: column;
+        
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #e0e0e0;
+
+        /* ANIMAÇÃO: começa invisível e um pouco para cima */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+    header nav ul.active {
+        /* ANIMAÇÃO: quando ativo, fica visível e desliza para a posição final */
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    header nav ul li { 
+        margin: 12px 20px; 
+        text-align: left; 
+    }
+
+    /* --- Outras Seções --- */
+    .hero-carousel { 
+        height: auto; 
+        min-height: 450px; 
+    }
+    .main-swiper .swiper-button-next, 
+    .main-swiper .swiper-button-prev { 
+        display: none; /* Oculta as setas de navegação do slider */
+    }
+
+    /* --- Footer --- */
+    .footer-content { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        gap: 20px;
+    }
+    .footer-nav ul { 
+        padding-left: 0; 
+    }
+    .footer-logo, 
+    .footer-nav, 
+    .footer-contato { 
+        margin-bottom: 20px; 
+    }
 }
 
 /* Animação de Fade-in */

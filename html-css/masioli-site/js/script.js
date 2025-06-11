@@ -92,29 +92,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Dados dos Tratamentos (simulados)
     const tratamentosData = {
-        'estetica': {
-            titulo: "Dentística Restauradora",
-            imagem: "https://via.placeholder.com/400x250/253951/EDEDEE?text=Estética+Detalhe",
-            descricao: "Transforme seu sorriso com as mais modernas técnicas de odontologia estética. Realizamos um planejamento individualizado para alcançar a harmonia facial e a beleza natural do seu sorriso. Nossos tratamentos incluem clareamento dental a laser, facetas de porcelana ou resina, lentes de contato dental, e restaurações estéticas que mimetizam perfeitamente a cor e forma dos seus dentes naturais.",
-            beneficios: ["Sorriso mais branco e atraente.", "Correção de imperfeições (cor, forma, tamanho).", "Aumento da autoestima e confiança.", "Resultados duradouros com os devidos cuidados."],
-            ctaLink: "#contato"
-        },
-        'implantes': {
-            titulo: "Implantes Dentários: Recupere seu Sorriso",
-            imagem: "https://via.placeholder.com/400x250/A67955/EDEDEE?text=Implante+Detalhe",
-            descricao: "Os implantes dentários são a solução mais moderna e eficaz para a reposição de dentes perdidos. Consistem em pinos de titânio biocompatíveis que são cirurgicamente inseridos no osso maxilar ou mandibular, funcionando como raízes artificiais sobre as quais são fixadas as próteses (coroas). Este tratamento restaura a função mastigatória, a fonética e a estética do sorriso, proporcionando conforto e segurança.",
-            beneficios: ["Solução fixa e de aparência natural.", "Melhora da capacidade de mastigação e fala.", "Preservação da estrutura óssea facial.", "Não desgasta dentes vizinhos (como em pontes tradicionais)."],
-            ctaLink: "#contato"
-        },
-        'ortodontia': {
-            titulo: "Ortodontia Moderna para Todas as Idades",
-            imagem: "https://via.placeholder.com/400x250/8D8D8D/EDEDEE?text=Orto+Detalhe",
-            descricao: "Corrija o alinhamento dos seus dentes e a sua mordida com nossos tratamentos ortodônticos. Oferecemos desde os aparelhos metálicos convencionais até as opções mais discretas e confortáveis, como os alinhadores invisíveis (Invisalign® ou similar) e aparelhos estéticos de safira ou porcelana. Um sorriso alinhado não é apenas estética, mas também saúde, facilitando a higienização e prevenindo problemas futuros.",
-            beneficios: ["Dentes alinhados e sorriso harmonioso.", "Melhora da oclusão (mordida).", "Facilidade na higienização bucal.", "Prevenção de desgastes dentários e problemas na ATM."],
-            ctaLink: "#contato"
-        }
-    };
 
+    'estetica': {
+        titulo: "Dentística Restauradora",
+        imagem: "images/detalhe-estetica.jpg", // Sugestão: Use imagens reais em vez de placeholders
+        descricao: "Transforme seu sorriso com as mais modernas técnicas de odontologia estética. Realizamos um planejamento individualizado para alcançar a harmonia facial e a beleza natural do seu sorriso. Nossos tratamentos incluem clareamento dental a laser, facetas de porcelana ou resina, lentes de contato dental, e restaurações estéticas que mimetizam perfeitamente a cor e forma dos seus dentes naturais.",
+        beneficios: ["Sorriso mais branco e atraente.", "Correção de imperfeições (cor, forma, tamanho).", "Aumento da autoestima e confiança.", "Resultados duradouros com os devidos cuidados."],
+        ctaLink: "#contato"
+    },
+    'implantes': {
+        titulo: "Implantes Dentários: Recupere seu Sorriso",
+        imagem: "images/detalhe-implantes.jpg",
+        descricao: "Os implantes dentários são a solução mais moderna e eficaz para a reposição de dentes perdidos. Consistem em pinos de titânio biocompatíveis que são cirurgicamente inseridos no osso maxilar ou mandibular, funcionando como raízes artificiais sobre as quais são fixadas as próteses (coroas). Este tratamento restaura a função mastigatória, a fonética e a estética do sorriso, proporcionando conforto e segurança.",
+        beneficios: ["Solução fixa e de aparência natural.", "Melhora da capacidade de mastigação e fala.", "Preservação da estrutura óssea facial.", "Não desgasta dentes vizinhos (como em pontes tradicionais)."],
+        ctaLink: "#contato"
+    },
+    'ortodontia': {
+        titulo: "Ortodontia",
+        imagem: "images/detalhe-ortodontia.jpg",
+        descricao: "Corrija o alinhamento dos seus dentes e a sua mordida com nossos tratamentos ortodônticos. Oferecemos desde os aparelhos metálicos convencionais até as opções mais discretas e confortáveis, como os alinhadores invisíveis e aparelhos estéticos de safira ou porcelana. Um sorriso alinhado não é apenas estética, mas também saúde, facilitando a higienização e prevenindo problemas futuros.",
+        beneficios: ["Dentes alinhados e sorriso harmonioso.", "Melhora da oclusão (mordida).", "Facilidade na higienização bucal.", "Prevenção de desgastes dentários e problemas na ATM."],
+        ctaLink: "#contato"
+    },
+
+    // --- NOVOS ITENS CRIADOS PARA VOCÊ ---
+
+    'endodontia': {
+        titulo: "Endodontia",
+        imagem: "images/detalhe-endodontia.jpg",
+        descricao: "Popularmente conhecido como tratamento de canal, a endodontia é o procedimento que trata a parte interna do dente (polpa dentária) quando ela está danificada por uma cárie profunda ou trauma. Utilizando tecnologia moderna, removemos a polpa infectada, limpamos e selamos o canal, eliminando a dor e salvando um dente que, de outra forma, precisaria ser extraído.",
+        beneficios: ["Alívio imediato e eficaz da dor de dente intensa.", "Salva seu dente natural, evitando a extração.", "Impede que a infecção se espalhe para outros dentes.", "Permite a restauração completa da função e estética do dente."],
+        ctaLink: "#contato"
+    },
+    'odontopediatria': {
+        titulo: "Odontopediatria",
+        imagem: "images/detalhe-odontopediatria.jpg",
+        descricao: "A odontopediatria é a área dedicada à saúde bucal de bebês, crianças e adolescentes. Nosso foco é criar uma experiência positiva e divertida, construindo uma relação de confiança desde cedo. Realizamos desde a prevenção, com aplicação de flúor e selantes, até o tratamento de cáries, sempre com uma abordagem lúdica, paciente e adaptada ao universo infantil.",
+        beneficios: ["Cria uma base sólida para uma vida inteira de saúde bucal.", "Prevenção de cáries e outros problemas dentários.", "Acompanhamento do desenvolvimento da dentição e da mordida.", "Ambiente acolhedor que reduz o medo e a ansiedade da criança."],
+        ctaLink: "#contato"
+    },
+    'harmonizacao': {
+        titulo: "Harmonização Orofacial",
+        imagem: "images/detalhe-harmonizacao.jpg",
+        descricao: "A Harmonização Orofacial (HOF) é um conjunto de procedimentos estéticos que busca o equilíbrio entre as características funcionais e estéticas do rosto e do sorriso. Como dentistas, possuímos um profundo conhecimento da anatomia facial. Realizamos aplicações de toxina botulínica (Botox®), preenchimento com ácido hialurônico para lábios e sulcos, e outros tratamentos que realçam sua beleza de forma sutil e natural.",
+        beneficios: ["Suavização de rugas e linhas de expressão.", "Restauração do volume facial e contorno dos lábios.", "Resultados que complementam e valorizam o seu sorriso.", "Procedimentos seguros e minimamente invasivos."],
+        ctaLink: "#contato"
+    },
+    'periodontia': {
+        titulo: "Periodontia",
+        imagem: "images/detalhe-periodontia.jpg",
+        descricao: "A periodontia é a especialidade que cuida da saúde dos tecidos que sustentam os dentes: a gengiva e o osso. Tratamos desde a gengivite (inflamação e sangramento gengival) até a periodontite, uma condição mais séria que pode levar à perda dentária. Manter a gengiva saudável é fundamental para a saúde geral e para o sucesso de todos os outros tratamentos odontológicos.",
+        beneficios: ["Tratamento eficaz para gengivas que sangram.", "Prevenção da perda óssea e do amolecimento dos dentes.", "Combate ao mau hálito (halitose) de origem gengival.", "Garante uma fundação sólida para implantes e próteses."],
+        ctaLink: "#contato"
+    }
+};
     if (btnsAbrirModalTratamento.length > 0 && modalTratamento && modalTratamentoInfoContainer) {
         btnsAbrirModalTratamento.forEach(btn => {
             btn.addEventListener('click', function(event) {

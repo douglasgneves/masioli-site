@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Entre em contato com a Masioli Odontologia & Associados. Agende sua consulta ou tire suas dúvidas.">
-    <title>Contato - Masioli Odontologia & Associados</title>
+    <meta name="description" content="Masioli Odontologia & Associados - Excelência e sofisticação em cuidados odontológicos.">
+    <title>Masioli Odontologia</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Se você usa Swiper.js em outras páginas e o CSS dele é global, mantenha. Caso contrário, pode remover se não for usado aqui. -->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <!-- Adicionar link para biblioteca de carrossel, ex: Swiper.js ou Slick Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="icon" href="images/favicon_Prancheta-1.png" type="logo clínica">
     <!-- <link rel="icon" href="images/favicon.png" type="image/png"> -->
 </head>
 <body>
@@ -20,15 +21,35 @@
                 </a>
             </div>
             <nav>
-                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">A Clínica</a></li>
-                    <li><a href="#tratamentos">Tratamentos</a></li>
-                    <li><a href="#equipe">Equipe</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#sobre">A Clínica</a></li>
+        <li><a href="index.html#tratamentos">Tratamentos</a></li>
+        <li><a href="index.html#equipe">Equipe</a></li>
+
+        <!-- Item de Mídias com o dropdown -->
+        <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle">Mídias ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="lojavitao">Livros Autorais</a></li>
+                <li><a href="artigos.html">Redes Sociais</a></li>
+            </ul>
+        </li>
+
+        <li><a href="contato.html">Contato</a></li>
+
+        <!-- Item de Loja com o dropdown -->
+        <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle">Loja ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
         </div>
     </header>
 
@@ -134,100 +155,116 @@
     </main>
 
             <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html" aria-label="Página Inicial Masioli Odontologia">
-                        <h3>MASIOLI</h3>
-                        <p>ODONTOLOGIA</p>
-                    </a>
-                </div>
-                <div class="footer-nav">
-                    <h4>Navegue</h4>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="index.html#sobre">A Clínica</a></li>
-                        <li><a href="index.html#tratamentos">Tratamentos</a></li>
-                        <li><a href="index.html#equipe">Equipe</a></li>
-                        <li><a href="contato.html">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contato">
-                    <h4>Contato Rápido</h4>
-                    <p>(XX) XXXX-XXXX</p>
-                    <p>contato@masioliodontologia.com.br</p>
-                    
-                    <!-- ADICIONAR SEÇÃO DE REDES SOCIAIS AQUI -->
-                                        <div class="footer-social">
-                        <h4>Siga-nos</h4>
-                        <ul class="social-icons">
-                            <li>
-                                <a href="https://www.instagram.com/SEU_PERFIL_INSTAGRAM" target="_blank" rel="noopener noreferrer" aria-label="Masioli Odontologia no Instagram">
-                                    <!-- SVG DO INSTAGRAM (como antes) -->
-                                    <svg viewBox="0 0 24 24" class="social-icon">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.258.056 2.105.248 2.827.545.736.302 1.344.736 1.952 1.344.608.608 1.042 1.216 1.344 1.952.297.722.489 1.57.545 2.827.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.258-.248 2.105-.545 2.827-.302.736-.736 1.344-1.344 1.952-.608.608-1.216 1.042-1.952 1.344-.722.297-1.57.489-2.827.545-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.258-.056-2.105-.248-2.827-.545-.736-.302-1.344-.736-1.952-1.344-.608-.608-1.042-1.216-1.344-1.952-.297-.722-.489-1.57-.545-2.827-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.056-1.258.248-2.105.545-2.827.302-.736.736-1.344 1.344-1.952.608-.608 1.216-1.042 1.952-1.344.722-.297 1.57-.489 2.827-.545C8.416 2.175 8.796 2.163 12 2.163m0-1.603c-3.264 0-3.674.014-4.947.072-1.28.058-2.203.252-2.984.55C3.29 1.472 2.62 1.914 1.964 2.57c-.658.658-1.098 1.328-1.382 2.124-.298.782-.492 1.704-.55 2.984C.014 8.326 0 8.736 0 12s.014 3.674.072 4.947c.058 1.28.252 2.203.55 2.984.284.8.724 1.468 1.382 2.124.658.658 1.328 1.098 2.124 1.382.782.298 1.704.492 2.984.55C8.326 23.986 8.736 24 12 24s3.674-.014 4.947-.072c1.28-.058 2.203-.252 2.984-.55.8-.284 1.468-.724 2.124-1.382.658-.658 1.098-1.328 1.382-2.124.298-.782.492-1.704.55-2.984.058-1.272.072-1.682.072-4.947s-.014-3.674-.072-4.947c-.058-1.28-.252-2.203-.55-2.984-.284-.8-.724-1.468-1.382-2.124C21.378 1.914 20.708 1.472 19.924.188c-.782-.298-1.704-.492-2.984-.55C15.674.014 15.264 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/SEU_PERFIL_FACEBOOK" target="_blank" rel="noopener noreferrer" aria-label="Masioli Odontologia no Facebook">
-                                    <!-- SVG DO FACEBOOK (como antes) -->
-                                    <svg viewBox="0 0 24 24" class="social-icon">
-                                        <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.086h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
-                                    </svg>
-                                </a>
-                            </li>
-                            <!-- NOVO: TikTok -->
-                            <li>
-                                <a href="https://www.tiktok.com/@SEU_PERFIL_TIKTOK" target="_blank" rel="noopener noreferrer" aria-label="Masioli Odontologia no TikTok">
-                                    <!-- SUBSTITUA PELO SEU SVG DO TIKTOK -->
-                                    <svg viewBox="0 0 24 24" class="social-icon" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 0 .17.01.23.05.27.17.43.41.49.69.05.23.05.46.05.69v13.6c0 1.25-.94 2.31-2.18 2.39-.08.01-.17.01-.24.01-1.3 0-2.6-.01-3.9-.01s-2.6.01-3.91.01c-.08 0-.17-.01-.24-.01-1.24-.08-2.18-1.14-2.18-2.39V2.11c0-.23.01-.46.05-.69.07-.28.23-.52.49-.69.07-.04.15-.05.23-.05 1.3-.01 2.6-.02 3.91-.02M7.64 6.78c.01-.08.01-.15.01-.23 0-1.42.92-2.12 2.16-2.12.08 0 .17.01.24.01 1.3.01 2.6.02 3.9.02.08 0 .17-.01.23-.01 1.25 0 2.17.71 2.17 2.12 0 .08 0 .15-.01.23v7.35c0 .72-.37 1.38-1.02 1.71-.23.12-.48.19-.74.22h-1.4c-.29-.02-.57-.09-.84-.21-.69-.31-1.03-.99-1.03-1.72V6.78zm5.09-2.75c-.01.08-.01.15-.01.23v2.54c0 .72.38 1.38 1.03 1.71.26.12.55.19.84.21h1.4c.26-.03.51-.1.74-.22.65-.33 1.02-1 1.02-1.71V4.26c0-.08 0-.15-.01-.23 0-1.42-.92-2.12-2.16-2.12-.08 0-.17.01-.24.01-1.3.01-2.6.02-3.9.02-.08 0-.17-.01-.23-.01-1.25.01-2.17.72-2.17 2.13 0 .08 0 .15-.01.23v2.54c0 .72.38 1.38 1.03 1.71.26.12.55.19.84.21h.01c.29-.02.57-.09.84-.21.69-.31 1.03-.99 1.03-1.72V4.26c0-.08 0-.15-.01-.23z"/>
-                                    </svg>
-                                    <!-- O SVG acima é um exemplo, substitua pelo seu SVG real do TikTok -->
-                                </a>
-                            </li>
-                            <!-- NOVO: YouTube -->
-                            <li>
-                                <a href="https://www.youtube.com/channel/SEU_CANAL_YOUTUBE" target="_blank" rel="noopener noreferrer" aria-label="Masioli Odontologia no YouTube">
-                                    <!-- SUBSTITUA PELO SEU SVG DO YOUTUBE -->
-                                    <svg viewBox="0 0 24 24" class="social-icon" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                    </svg>
-                                    <!-- O SVG acima é um exemplo, substitua pelo seu SVG real do YouTube -->
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- FIM DA SEÇÃO DE REDES SOCIAIS -->
-
-                </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html" aria-label="Página Inicial Masioli Odontologia">
+                    <h3>MASIOLI</h3>
+                    <p>ODONTOLOGIA & ASSOCIADOS</p>
+                </a>
             </div>
-            <div class="copyright">
-                <p>© <span id="currentYear"></span> Masioli Odontologia & Associados. Todos os direitos reservados.</p>
+            <div class="footer-nav">
+                <h4>Navegue</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">A Clínica</a></li>
+                    <li><a href="index.html#tratamentos">Tratamentos</a></li>
+                    <li><a href="index.html#equipe">Equipe</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-contato">
+                <h4>Contato Rápido</h4>
+                <p>(27) 9 9960-3444</p>
+                <p>clínica@masioliodontologia.com.br</p>
+                
+                <div class="footer-social">
+    <h4>Siga-nos</h4>
+    <ul class="social-icons">
+        <li>
+            <a href="https://instagram.com/masioliodontologia" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Instagram">
+                <!-- Ícone Instagram -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/share/1FbwdW9Kvh/" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Facebook">
+                <!-- Ícone Facebook -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+        </li>
+        <li>
+            <a href="https://tiktok.com/@masiolimarco" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso TikTok">
+                <!-- Ícone TikTok -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.349 7.423c-.001-.016-.001-.031-.002-.047a.765.765 0 00-.14-.343.759.759 0 00-.333-.213.75.75 0 00-.404-.035c-.015.002-.03.006-.045.01h-.001c-.341.049-1.229.173-2.459.173-1.849 0-2.583-.54-2.583-1.545V1.25C13.382.56 12.822 0 12.132 0H4.5C4.224 0 4 0 4 0v16.33c0 3.42 2.36 4.67 4.953 4.67 2.593 0 4.953-1.25 4.953-4.67v-5.28c.053 2.04 1.633 3.48 3.693 3.48 1.48 0 2.59-1.25 2.59-2.59s-1.11-2.59-2.59-2.59c-1.12 0-2.36.75-2.36 2.08v-3.08c1.391-.04 2.3-.51 2.87-1.18.002-.002.003-.004.005-.006z"/></svg>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/@marcomasioli" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso YouTube">
+                <!-- Ícone YouTube -->
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
+        </li>
+    </ul>
+</div>
+            </div>
+
+            <!-- NOVA DIV PARA HORÁRIO DE FUNCIONAMENTO -->
+            <div class="footer-horario">
+                <h4>Horário de Funcionamento</h4>
+                <p>Segunda a Sexta: 08h às 18h</p>
+                <p>Sábado: 08h às 12h</p>
+                <p class="urgencias">Urgências: Atendemos aos finais de semana e feriados. <a href="27999603444">Ligue!</a></p>
+                <!-- Ou se não houver um número específico para urgência, apenas a informação:
+                <p class="urgencias">Atendemos urgências aos finais de semana e feriados.</p>
+                -->
+            </div>
+            <!-- FIM DA NOVA DIV -->
+
+        </div>
+        <div class="copyright">
+            <p>© <span id="currentYear"></span> Masioli Odontologia & Associados. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+    <!-- Modal para Detalhes do Profissional -->
+    <div id="profissionalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div id="modalProfissionalInfo">
+                <!-- Conteúdo será preenchido via JS -->
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Se o script.js for comum a todas as páginas, mantenha. -->
-    <!-- Se tiver JS específico para esta página, pode criar um contato.js -->
+    <!-- Modal para Detalhes do Tratamento -->
+<div id="tratamentoModal" class="modal">
+    <div class="modal-content tratamento-modal-content"> <!- Adicionada classe específica ->
+        <span class="close-modal close-tratamento-modal">×</span>
+        <div id="modalTratamentoInfo">
+            <!-- Conteúdo será preenchido via JS -->
+            <!-- Exemplo de como poderia ser a estrutura interna:
+            <img src="caminho_imagem_tratamento.jpg" alt="Nome do Tratamento" class="modal-tratamento-imagem">
+            <h3 class="modal-tratamento-titulo">Nome do Tratamento</h3>
+            <p class="modal-tratamento-descricao">Descrição detalhada do tratamento aqui...</p>
+            <p><strong>Benefícios:</strong></p>
+            <ul>
+                <li>Benefício 1</li>
+                <li>Benefício 2</li>
+            </ul>
+            <a href="#contato" class="cta-button modal-cta">Agendar Avaliação para este Tratamento</a>
+            -->
+        </div>
+    </div>
+</div>
+    <!-- ... seu footer e modais ... -->
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5527999603444" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Entre em contato pelo WhatsApp">
+      <img class="whatsapp-icon-img" src="images/icone-whatsapp.svg">
+    </a>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
-    <!--
-    <script>
-        // JS específico para a página de contato, se necessário (ex: validação do formulário contactFormPage)
-        // Se a lógica do formulário em script.js já for genérica, pode não precisar disto.
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactFormPage = document.getElementById('contactFormPage');
-            if (contactFormPage) {
-                contactFormPage.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const nome = document.getElementById('nome').value;
-                    alert(`Página de Contato: Obrigado, ${nome}! Sua mensagem foi enviada. (Simulação)`);
-                    contactFormPage.reset();
-                });
-            }
-        });
-    </script>
-    -->
 </body>
 </html>
