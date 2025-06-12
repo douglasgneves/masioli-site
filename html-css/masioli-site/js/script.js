@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.depoimentos-swiper')) {
         const depoimentosSwiper = new Swiper('.depoimentos-swiper', {
             loop: true,
+            centeredSlides: true,
             slidesPerView: 1,
             spaceBetween: 30,
             autoplay: {
